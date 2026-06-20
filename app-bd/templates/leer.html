@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lectura de Personas</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; }
+        h1 { color: #2c3e50; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+        th { background-color: #2c3e50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        nav a { margin-right: 15px; }
+        .vacio { color: #777; font-style: italic; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/leer">Leer</a>
+        <a href="/escribir">Escribir</a>
+    </nav>
+    <h1>Listado de Personas</h1>
+
+    {% if personas %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Documento</th>
+        </tr>
+        {% for p in personas %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.apellido }}</td>
+            <td>{{ p.documento }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p class="vacio">Todavía no hay personas cargadas.</p>
+    {% endif %}
+</body>
+</html>
