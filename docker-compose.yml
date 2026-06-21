@@ -1,5 +1,6 @@
 services:
   db:
+    image: ghcr.io/jeromassaro/personas-db:latest
     build: ./db
     container_name: personas-db
     environment:
@@ -17,6 +18,7 @@ services:
       retries: 10
   
   app:
+    image: ghcr.io/jeromassaro/personas-app:latest
     build: ./app-bd
     container_name: personas-app
     environment:
